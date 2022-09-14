@@ -46,13 +46,6 @@ set(BUILD_SHARED_LIBS ON CACHE BOOL "" FORCE)
 set(GLFW_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/lib/glfw/include" CACHE PATH "GLFW lib include")
 add_subdirectory(${PROJECT_SOURCE_DIR}/lib/glfw)
 
-# imgui
-set(IMGUI_BUILD_BACKEND_OPENGL3 ON CACHE BOOL "" FORCE)
-set(IMGUI_BUILD_BACKEND_GLFW ON CACHE BOOL "" FORCE)
-
-set(IMGUI_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/lib/imgui/include" CACHE PATH "imgui lib include")
-add_subdirectory(${PROJECT_SOURCE_DIR}/lib/imgui)
-
 # spdlog
 set(SPDLOG_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/lib/spdlog/include" CACHE PATH "spdlog lib include")
 add_subdirectory(${PROJECT_SOURCE_DIR}/lib/spdlog)
