@@ -57,10 +57,6 @@ add_subdirectory(${PROJECT_SOURCE_DIR}/lib/imgui)
 set(SPDLOG_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/lib/spdlog/include" CACHE PATH "spdlog lib include")
 add_subdirectory(${PROJECT_SOURCE_DIR}/lib/spdlog)
 
-# tinyfiledialogs
-set(TFD_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/lib/tinyfiledialogs/include" CACHE PATH "tinyfiledialogs lib include")
-add_subdirectory(${PROJECT_SOURCE_DIR}/lib/tinyfiledialogs)
-
 #################################################################################
 #                                     Sources                                   #
 #################################################################################
