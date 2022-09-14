@@ -1,7 +1,7 @@
 /*
  * SPDX-License-Identifier: BSD-3-Clause
  * 
- * Copyright (c) 2022, Saveliy Pototskiy (SavaLione) (savalione.com)
+ * Copyright (c) 2020-2022, Saveliy Pototskiy (SavaLione) (savalione.com)
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -28,13 +28,27 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  */
- /**
+/**
  * @file
- * @brief Lanthe application
+ * @brief Wait
  * @author Saveliy Pototskiy (SavaLione)
- * @date 10 Sep 2022
+ * @date 10 Nov 2020
  */
-#ifndef CORE_LANTHE_H
-#define CORE_LANTHE_H
 
-#endif // CORE_LANTHE_H
+class wait_time
+{
+public:
+	wait_time();
+	~wait_time();
+
+	void msec(const int &msec);
+	void sec(const int &sec);
+	void minutes(const int &minutes);
+	void hour(const int &hour);
+
+private:
+	void _msec(const int &msec);
+	void _sec(const int &sec);
+	void _minutes(const int &minutes);
+	void _hour(const int &hour);
+};

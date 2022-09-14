@@ -1,7 +1,7 @@
 /*
  * SPDX-License-Identifier: BSD-3-Clause
  * 
- * Copyright (c) 2022, Saveliy Pototskiy (SavaLione) (savalione.com)
+ * Copyright (c) 2020-2022, Saveliy Pototskiy (SavaLione) (savalione.com)
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -30,11 +30,8 @@
  */
  /**
  * @file
- * @brief Lanthe application
+ * @brief Platform specific constants
  * @author Saveliy Pototskiy (SavaLione)
- * @date 10 Sep 2022
+ * @date 10 Nov 2020
  */
-#ifndef CORE_LANTHE_H
-#define CORE_LANTHE_H
-
-#endif // CORE_LANTHE_H
+#include "core/platform.h"

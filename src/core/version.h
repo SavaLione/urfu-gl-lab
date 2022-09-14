@@ -30,11 +30,29 @@
  */
  /**
  * @file
- * @brief Lanthe application
+ * @brief Lanthe application version
  * @author Saveliy Pototskiy (SavaLione)
  * @date 10 Sep 2022
  */
-#ifndef CORE_LANTHE_H
-#define CORE_LANTHE_H
+#ifndef CORE_VERSION_H
+#define CORE_VERSION_H
 
-#endif // CORE_LANTHE_H
+#include <string>
+
+/* Verion major */
+std::string get_version_major();
+
+/* Verion minor */
+std::string get_version_minor();
+
+/* Verion path */
+std::string get_version_path();
+
+/*
+    Verion full
+    
+    Example: 0.0.23
+*/
+std::string get_version_full();
+
+#endif // CORE_VERSION_H

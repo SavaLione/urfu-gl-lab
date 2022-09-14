@@ -30,11 +30,62 @@
  */
  /**
  * @file
- * @brief Lanthe application
+ * @brief Lanthe application version
  * @author Saveliy Pototskiy (SavaLione)
  * @date 10 Sep 2022
  */
-#ifndef CORE_LANTHE_H
-#define CORE_LANTHE_H
+#include "core/version.h"
 
-#endif // CORE_LANTHE_H
+#include <cstddef>
+#include <vector>
+
+std::string _VERSION = "0.0.1";
+
+std::vector<std::string> split(std::string s, std::string delimiter)
+{
+	size_t pos_start = 0, pos_end, delim_len = delimiter.length();
+	std::string token;
+	std::vector<std::string> res;
+
+	while((pos_end = s.find(delimiter, pos_start)) != std::string::npos)
+	{
+		token	  = s.substr(pos_start, pos_end - pos_start);
+		pos_start = pos_end + delim_len;
+		res.push_back(token);
+	}
+
+	res.push_back(s.substr(pos_start));
+	return res;
+}
+
+std::string get_version_number(int const &i)
+{
+	std::string ret					= "";
+	std::vector<std::string> _ret_v = split(_VERSION, ".");
+
+	if(_ret_v.size() > i)
+	{
+		ret = _ret_v[i];
+	}
+	return ret;
+}
+
+std::string get_version_major()
+{
+	return get_version_number(0);
+}
+
+std::string get_version_minor()
+{
+	return get_version_number(1);
+}
+
+std::string get_version_path()
+{
+	return get_version_number(2);
+}
+
+std::string get_version_full()
+{
+	return _VERSION;
+}

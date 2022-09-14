@@ -30,11 +30,55 @@
  */
  /**
  * @file
- * @brief Lanthe application
+ * @brief Lanthe application settings
  * @author Saveliy Pototskiy (SavaLione)
  * @date 10 Sep 2022
  */
-#ifndef CORE_LANTHE_H
-#define CORE_LANTHE_H
+#ifndef CORE_SETTINGS_H
+#define CORE_SETTINGS_H
 
-#endif // CORE_LANTHE_H
+#include <string>
+
+/* Log levels */
+enum log_level
+{
+	TRACE	 = 1,
+	DEBUG	 = 2,
+	INFO	 = 3,
+	WARN	 = 4,
+	ERROR	 = 5,
+	CRITICAL = 6
+};
+
+class settings
+{
+public:
+	static settings &instance()
+	{
+		static settings s;
+		return s;
+	}
+
+	~settings();
+
+	/*
+        Variables and parameters
+    */
+
+	/* Log level */
+	log_level l_level();
+
+private:
+	settings();
+	settings(settings const &) = delete;
+	settings &operator=(settings const &) = delete;
+
+	/*
+        Variables and parameters
+    */
+
+	/* Log level */
+	log_level _l_level = log_level::INFO;
+};
+
+#endif // CORE_SETTINGS_H

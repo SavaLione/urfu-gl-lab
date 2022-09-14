@@ -1,7 +1,7 @@
 /*
  * SPDX-License-Identifier: BSD-3-Clause
  * 
- * Copyright (c) 2022, Saveliy Pototskiy (SavaLione) (savalione.com)
+ * Copyright (c) 2020-2022, Saveliy Pototskiy (SavaLione) (savalione.com)
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -28,13 +28,29 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  */
- /**
+/**
  * @file
- * @brief Lanthe application
+ * @brief Algorithm execution time
  * @author Saveliy Pototskiy (SavaLione)
- * @date 10 Sep 2022
+ * @date 10 Nov 2020
  */
-#ifndef CORE_LANTHE_H
-#define CORE_LANTHE_H
+#ifndef TIME_EXECUTION_TIME_H
+#define TIME_EXECUTION_TIME_H
 
-#endif // CORE_LANTHE_H
+#include <ctime>
+#include <string>
+
+class execution_time
+{
+public:
+	execution_time();
+	~execution_time();
+	void start();
+	double duration();
+	std::string s_duration();
+
+private:
+	std::clock_t _start;
+};
+
+#endif // TIME_EXECUTION_TIME_H

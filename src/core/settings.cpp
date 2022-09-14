@@ -30,11 +30,16 @@
  */
  /**
  * @file
- * @brief Lanthe application
+ * @brief Lanthe application settings
  * @author Saveliy Pototskiy (SavaLione)
  * @date 10 Sep 2022
  */
-#ifndef CORE_LANTHE_H
-#define CORE_LANTHE_H
+#include "core/settings.h"
 
-#endif // CORE_LANTHE_H
+settings::settings() {}
+settings::~settings() {}
+
+log_level settings::l_level()
+{
+	return _l_level;
+}

@@ -55,13 +55,41 @@ add_subdirectory(${PROJECT_SOURCE_DIR}/lib/spdlog)
 #################################################################################
 # core
 set(LANTHE_CORE_SRC
+    src/core/compiler_version.h
+    src/core/compiler_version.cpp
     src/core/lanthe.h
     src/core/lanthe.cpp
+    src/core/platform.h
+    src/core/platform.cpp
+    src/core/settings.h
+    src/core/settings.cpp
+    src/core/version.h
+    src/core/version.cpp
+    src/core/window.h
+    src/core/window.cpp
+)
+
+# io
+set(LANTHE_IO_SRC
+    src/io/logger.h
+    src/io/logger.cpp
+)
+
+# time
+set(LANTHE_TIME_SRC
+    src/time/current_time.h
+    src/time/current_time.cpp
+    src/time/execution_time.h
+    src/time/execution_time.cpp
+    src/time/wait_time.h
+    src/time/wait_time.cpp
 )
 
 # Lanthe application
 set(LANTHE_SRC
     ${LANTHE_CORE_SRC}
+    ${LANTHE_IO_SRC}
+    ${LANTHE_TIME_SRC}
 )
 
 #################################################################################
@@ -85,7 +113,7 @@ target_link_libraries(${LANTHE_PROJECT} glfw)
 target_include_directories(${LANTHE_PROJECT} PUBLIC ${GLFW_INCLUDE_DIR})
 
 # spdlog
-target_link_libraries(${LANTHE_PROJECT} spdlog)
+target_link_libraries(${LANTHE_PROJECT} spdlog::spdlog)
 target_include_directories(${LANTHE_PROJECT} PUBLIC ${SPDLOG_INCLUDE_DIR})
 
 #################################################################################

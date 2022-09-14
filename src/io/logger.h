@@ -1,7 +1,7 @@
 /*
  * SPDX-License-Identifier: BSD-3-Clause
  * 
- * Copyright (c) 2022, Saveliy Pototskiy (SavaLione) (savalione.com)
+ * Copyright (c) 2021-2022, Saveliy Pototskiy (SavaLione) (savalione.com)
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -30,11 +30,15 @@
  */
  /**
  * @file
- * @brief Lanthe application
+ * @brief Logger wrapper
  * @author Saveliy Pototskiy (SavaLione)
- * @date 10 Sep 2022
+ * @date 23 Jun 2021
  */
-#ifndef CORE_LANTHE_H
-#define CORE_LANTHE_H
+#ifndef IO_LOGGER_H
+#define IO_LOGGER_H
 
-#endif // CORE_LANTHE_H
+#include <spdlog/spdlog.h>
+
+void logger_init();
+
+#endif // IO_LOGGER_H

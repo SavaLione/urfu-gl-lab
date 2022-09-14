@@ -1,7 +1,7 @@
 /*
  * SPDX-License-Identifier: BSD-3-Clause
  * 
- * Copyright (c) 2022, Saveliy Pototskiy (SavaLione) (savalione.com)
+ * Copyright (c) 2020-2022, Saveliy Pototskiy (SavaLione) (savalione.com)
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -28,13 +28,43 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  */
- /**
+/**
  * @file
- * @brief Lanthe application
+ * @brief Working with time
  * @author Saveliy Pototskiy (SavaLione)
- * @date 10 Sep 2022
+ * @date 10 Nov 2020
  */
-#ifndef CORE_LANTHE_H
-#define CORE_LANTHE_H
+#ifndef TIME_CURRENT_TIME_H
+#define TIME_CURRENT_TIME_H
 
-#endif // CORE_LANTHE_H
+#include <ctime>
+#include <string>
+
+class current_time
+{
+public:
+	current_time();
+	~current_time();
+
+	std::string s_year();
+	std::string s_month();
+	std::string s_day();
+	std::string s_hour();
+	std::string s_min();
+	std::string s_sec();
+
+	int i_year();
+	int i_month();
+	int i_day();
+	int i_hour();
+	int i_min();
+	int i_sec();
+
+	std::string s_date();
+
+private:
+	time_t now = time(0);
+	tm *ltm	   = localtime(&now);
+};
+
+#endif // TIME_CURRENT_TIME_H

@@ -1,7 +1,7 @@
 /*
  * SPDX-License-Identifier: BSD-3-Clause
  * 
- * Copyright (c) 2022, Saveliy Pototskiy (SavaLione) (savalione.com)
+ * Copyright (c) 2021-2022, Saveliy Pototskiy (SavaLione) (savalione.com)
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -30,11 +30,15 @@
  */
  /**
  * @file
- * @brief Lanthe application
+ * @brief Compiler version
  * @author Saveliy Pototskiy (SavaLione)
- * @date 10 Sep 2022
+ * @date 12 Jan 2021
  */
-#ifndef CORE_LANTHE_H
-#define CORE_LANTHE_H
+#ifndef COMPILER_VERSION_H
+#define COMPILER_VERSION_H
 
-#endif // CORE_LANTHE_H
+#include <string>
+
+std::string compiler_version();
+
+#endif // COMPILER_VERSION_H

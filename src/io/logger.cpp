@@ -1,7 +1,7 @@
 /*
  * SPDX-License-Identifier: BSD-3-Clause
  * 
- * Copyright (c) 2022, Saveliy Pototskiy (SavaLione) (savalione.com)
+ * Copyright (c) 2021-2022, Saveliy Pototskiy (SavaLione) (savalione.com)
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -30,11 +30,42 @@
  */
  /**
  * @file
- * @brief Lanthe application
+ * @brief Logger wrapper
  * @author Saveliy Pototskiy (SavaLione)
- * @date 10 Sep 2022
+ * @date 23 Jun 2021
  */
-#ifndef CORE_LANTHE_H
-#define CORE_LANTHE_H
+#include "io/logger.h"
 
-#endif // CORE_LANTHE_H
+#include "core/settings.h"
+
+void logger_init()
+{
+	settings &settings_instance = settings::instance();
+
+	switch(settings_instance.l_level())
+	{
+		case log_level::TRACE:
+			spdlog::set_level(spdlog::level::trace);
+			break;
+		case log_level::DEBUG:
+			spdlog::set_level(spdlog::level::debug);
+			break;
+		case log_level::INFO:
+			spdlog::set_level(spdlog::level::info);
+			break;
+		case log_level::WARN:
+			spdlog::set_level(spdlog::level::warn);
+			break;
+		case log_level::ERROR:
+			spdlog::set_level(spdlog::level::err);
+			break;
+		case log_level::CRITICAL:
+			spdlog::set_level(spdlog::level::critical);
+			break;
+		default:
+			spdlog::set_level(spdlog::level::info);
+			break;
+	}
+
+	// spdlog::set_pattern("[%H:%M:%S %z] [%^%L%$] [thread %t] %v");
+}
