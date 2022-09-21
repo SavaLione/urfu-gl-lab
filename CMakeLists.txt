@@ -5,6 +5,9 @@
 # Checking the minimum version
 cmake_minimum_required (VERSION 3.13.1)
 
+# Add module path
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+
 # Project Lanthe
 set(LANTHE_PROJECT "lanthe")
 set(LANTHE_PROJECT_VERSION "0.0.1")
@@ -38,17 +41,10 @@ endfunction(function_output_directory)
 find_package(OpenGL REQUIRED)
 
 # GLFW
-set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
-set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
-set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
-set(BUILD_SHARED_LIBS ON CACHE BOOL "" FORCE)
-
-set(GLFW_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/lib/glfw/include" CACHE PATH "GLFW lib include")
-add_subdirectory(${PROJECT_SOURCE_DIR}/lib/glfw)
+find_package(GLFW REQUIRED)
 
 # spdlog
-set(SPDLOG_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/lib/spdlog/include" CACHE PATH "spdlog lib include")
-add_subdirectory(${PROJECT_SOURCE_DIR}/lib/spdlog)
+find_package(spdlog REQUIRED)
 
 #################################################################################
 #                                     Sources                                   #
@@ -69,12 +65,6 @@ set(LANTHE_CORE_SRC
     src/core/window.cpp
 )
 
-# io
-set(LANTHE_IO_SRC
-    src/io/logger.h
-    src/io/logger.cpp
-)
-
 # time
 set(LANTHE_TIME_SRC
     src/time/current_time.h
@@ -88,7 +78,6 @@ set(LANTHE_TIME_SRC
 # Lanthe application
 set(LANTHE_SRC
     ${LANTHE_CORE_SRC}
-    ${LANTHE_IO_SRC}
     ${LANTHE_TIME_SRC}
 )
 
@@ -109,16 +98,14 @@ target_link_libraries(${LANTHE_PROJECT} ${OPENGL_gl_LIBRARY})
 target_include_directories(${LANTHE_PROJECT} PUBLIC ${OPENGL_INCLUDE_DIR})
 
 # GLFW
-target_link_libraries(${LANTHE_PROJECT} glfw)
+target_link_libraries(${LANTHE_PROJECT} ${GLFW_LIBRARY})
 target_include_directories(${LANTHE_PROJECT} PUBLIC ${GLFW_INCLUDE_DIR})
 
 # spdlog
-target_link_libraries(${LANTHE_PROJECT} spdlog::spdlog)
+target_link_libraries(${LANTHE_PROJECT} ${SPDLOG_LIBRARY})
 target_include_directories(${LANTHE_PROJECT} PUBLIC ${SPDLOG_INCLUDE_DIR})
 
 #################################################################################
 #                                 Output directory                              #
 #################################################################################
-function_output_directory(glfw)                 # Library glfw output directory
-function_output_directory(spdlog)               # Library spdlog output directory
 function_output_directory(${LANTHE_PROJECT})    # Lanthe application

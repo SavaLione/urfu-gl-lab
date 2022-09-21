@@ -38,15 +38,11 @@
 
 #include "core/settings.h"
 #include "core/window.h"
-#include "io/logger.h"
 
 int main()
 {
 	/* Settings initialization */
 	settings &settings_instance = settings::instance();
-
-	/* Logger initialization */
-	logger_init();
 
 	/* Window initialization */
 	window &window_instance = window::instance();
@@ -58,3 +54,5 @@ int main()
 
 	return 0;
 }
+
+// -DCMAKE_BUILD_TYPE=Release

@@ -37,8 +37,6 @@
 #ifndef CORE_WINDOW_H
 #define CORE_WINDOW_H
 
-#include "io/logger.h"
-
 #include <GLFW/glfw3.h>
 #include <string>
 

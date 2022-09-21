@@ -32,7 +32,7 @@ An example of building a project using the ```LLVM Clang``` compiler and the ```
 1. ```cmake.exe -G"Ninja" -DCMAKE_C_COMPILER="C:/bin/mingw64/bin/clang.exe" -DCMAKE_CXX_COMPILER="C:/bin/mingw64/bin/clang++.exe" ..```
 2. ```ninja```
 
-Example of CMake command: ``cmake.exe -G"Ninja" -DCMAKE_C_COMPILER="C:/bin/mingw64/bin/clang.exe" -DCMAKE_CXX_COMPILER="C:/bin/mingw64/bin/clang++.exe" -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ..``
+Example of CMake command: ``cmake.exe -G"Ninja" -DCMAKE_C_COMPILER="C:/bin/mingw64/bin/clang.exe" -DCMAKE_CXX_COMPILER="C:/bin/mingw64/bin/clang++.exe" -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_BUILD_TYPE=Release ..``
 
 ### Linux
 1. ```git clone --recursive-submodules https://github.com/SavaLione/urfu-gl-lab```
@@ -44,3 +44,48 @@ Example of CMake command: ``cmake.exe -G"Ninja" -DCMAKE_C_COMPILER="C:/bin/mingw
 6. ```make```
 
 Example of CMake command: ``cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ..``
+
+## etc.
+### OpenGL
+```
+.vert - a vertex shader
+.tesc - a tessellation control shader
+.tese - a tessellation evaluation shader
+.geom - a geometry shader
+.frag - a fragment shader
+.comp - a compute shader
+```
+
+Also we have ``.glsl`` file extension.
+
+And also we have this:
+```
+.vert
+.frag
+.comp
+.geom
+.tesc
+.tese
+.mesh
+.task
+.rgen
+.rchit
+.rmiss
+```
+
+#### SPIR-V
+The Standard, Portable Intermediate Representation - V (SPIR-V) is an intermediate language for defining shaders.
+
+Compile:
+```sh
+git clone https://github.com/KhronosGroup/SPIRV-Tools.git spirv-tools
+cd spirv-tools
+python3 utils/git-sync-deps
+mkdir build
+cd build
+cmake.exe -G"Ninja" -DCMAKE_C_COMPILER="C:/bin/mingw64/bin/clang.exe" -DCMAKE_CXX_COMPILER="C:/bin/mingw64/bin/clang++.exe" -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DSPIRV_SKIP_TESTS=ON ..
+```
+
+```
+cmake.exe -G"Ninja" -DCMAKE_C_COMPILER="C:/LLVM/bin/clang.exe" -DCMAKE_CXX_COMPILER="C:/LLVM/bin/clang++.exe" -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_BUILD_TYPE=Release ..
+```
